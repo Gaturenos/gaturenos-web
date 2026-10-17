@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Gatureños</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#1A2140;
+  --bg2:#222A4F;
+  --fg:#FFFFFF;
+  --muted:#B9BFD6;
+  --pink:#E3165F;
+  --line:#3A4370;
+  --font-display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
+  --font-body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:400 18px/1.55 var(--font-body);margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--font-display);font-weight:800;text-transform:uppercase;line-height:.95;margin:0;text-wrap:balance}
+.top{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;justify-content:space-between;padding-block:18px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--pink)}
+.logo img{display:block;height:44px;width:auto}
+.top ul{display:flex;flex-wrap:wrap;gap:6px 22px;list-style:none;margin:0;padding:0;font-weight:600;font-size:15px}
+.top ul a{text-decoration:none;color:var(--muted)}
+.top ul a:hover{color:var(--fg)}
+.entry{position:relative;background:#000;overflow:hidden}
+.entry video{display:block;width:100%;aspect-ratio:16/9;max-height:520px;object-fit:cover;object-position:60% 40%}
+.entry::after{content:"";position:absolute;inset:auto 0 0 0;height:35%;background:linear-gradient(transparent,var(--bg))}
+.intro{padding-block:12px 40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(160px,300px);column-gap:40px;align-items:start}
+.intro>*{grid-column:1}
+.intro p,.intro .chips{max-width:40em}
+.biglogo{grid-column:2;grid-row:1/span 5;width:100%;height:auto;justify-self:end}
+.slogan{font-size:clamp(48px,8.5vw,96px);margin:0 0 18px}
+.intro p{font-size:clamp(19px,2.4vw,24px);color:#fff;margin:0}
+.diff{font-size:clamp(30px,4.5vw,48px);margin:34px 0 16px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+.chips li{font:800 clamp(22px,3.2vw,32px) var(--font-display);text-transform:uppercase;background:var(--pink);padding:8px 16px 6px}
+.sec{font-size:clamp(34px,5vw,56px);margin:0 0 22px;padding-top:30px;border-top:1px solid var(--line)}
+.camp{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:28px;align-items:end;padding-bottom:30px}
+.camp .photo{margin:0;position:relative}
+.camp .photo img{display:block;width:100%;height:auto;border-radius:4px;-webkit-mask-image:linear-gradient(#000 78%,transparent);mask-image:linear-gradient(#000 78%,transparent)}
+.camp h1{font-size:clamp(56px,10vw,112px);letter-spacing:.005em}
+.tag{display:inline-block;background:var(--pink);color:#fff;font:800 clamp(24px,3.4vw,38px)/1 var(--font-display);text-transform:uppercase;padding:12px 20px 10px;transform:rotate(-2deg);margin:18px 0 22px -6px}
+.camp p{color:var(--muted);font-size:clamp(18px,2.2vw,22px);margin:0 0 16px;max-width:28em}
+.camp p.price{color:#fff;font-weight:600;margin-bottom:26px}
+.pill{display:block;text-align:center;border:2.5px solid #fff;border-radius:999px;padding:18px 24px;font-weight:600;font-size:clamp(17px,2.2vw,21px);text-decoration:none;color:#fff}
+.pill:hover{background:var(--pink);border-color:var(--pink)}
+.meter{background:var(--bg2);border-radius:6px;padding:26px;margin-bottom:56px}
+.meter .lbl{font:800 clamp(30px,5vw,48px)/1 var(--font-display);text-transform:uppercase;margin:0 0 18px}
+.meter .lbl i{font-style:normal;color:var(--pink)}
+.ears{display:grid;grid-template-columns:repeat(25,1fr);gap:clamp(3px,.8vw,8px);margin-bottom:14px}
+.ears svg{display:block;width:100%;height:auto}
+.ears .on{fill:var(--pink)}.ears .off{fill:var(--line)}
+.fine{font-size:15px;color:var(--muted);margin:0}
+.block{padding-block:56px;border-top:1px solid var(--line)}
+.eyebrow{display:inline-block;background:var(--pink);font:800 17px/1 var(--font-display);text-transform:uppercase;letter-spacing:.08em;padding:7px 12px 5px;margin-bottom:16px}
+.block h2{font-size:clamp(42px,7vw,80px);margin-bottom:16px}
+.lead{max-width:36em;color:var(--muted);font-size:20px;margin:0 0 32px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:var(--bg2);border-radius:6px;padding:26px;min-width:0}
+.card h3{font-size:34px;margin-bottom:10px}
+.card p{margin:0;color:var(--muted)}
+.card .n{font:800 15px var(--font-display);letter-spacing:.1em;text-transform:uppercase;color:var(--pink);display:block;margin-bottom:8px}
+.towns{display:flex;flex-wrap:wrap;gap:12px}
+.towns span{font:800 clamp(26px,4vw,40px) var(--font-display);text-transform:uppercase;border:2.5px solid var(--pink);padding:8px 20px 6px;border-radius:99px}
+.allies{margin-top:26px;color:var(--muted)}
+.allies b{color:#fff}
+.btn{display:inline-block;margin-top:18px;border:2.5px solid #fff;border-radius:999px;padding:12px 22px;font-weight:600;text-decoration:none}
+.btn:hover{background:var(--pink);border-color:var(--pink)}
+footer{border-top:3px solid var(--pink);padding-block:34px 56px;font-size:15px;color:var(--muted)}
+footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+footer b{color:#fff}footer p{margin:0 0 6px}
+@media (max-width:760px){
+  .camp{grid-template-columns:1fr}
+  .intro{grid-template-columns:1fr}
+  .biglogo{grid-column:1;grid-row:auto;width:180px;justify-self:start;margin-bottom:18px}
+  .camp .photo{order:-1}
+}
+@media (prefers-reduced-motion:reduce){.pill,.btn{transition:none}}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0 0!important}.pill2{display:inline-block;background:var(--pink);color:#fff;border:2.5px solid var(--pink);border-radius:999px;padding:14px 26px;font-weight:600;font-size:19px;text-decoration:none}.pill2.alt{background:none;border-color:#fff}.pill2:hover{background:#fff;color:var(--bg);border-color:#fff}.lbl2{font:800 clamp(24px,4vw,36px)/1.05 var(--font-display);text-transform:uppercase;margin:0 0 14px;color:var(--muted)}.card h3{overflow-wrap:anywhere;font-size:clamp(26px,5vw,34px)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="intro" aria-label="Presentación">
+    <img class="biglogo" src="logo_v.png" alt="Logotipo de Gatureños: gato con la oreja marcada" width="1036" height="784">
+    <span class="eyebrow">CER rural</span>
+    <h1 class="slogan">Cuidamos colonias. Cuidamos pueblos.</h1>
+    <p>Somos una asociación especializada en CER intensivo en la España rural: capturamos, esterilizamos y devolvemos cada gato a su colonia, con actuaciones cortas en pueblos donde, a veces, hay más gatos que personas.</p>
+    <h2 class="diff">El CER rural no es el CER de ciudad.</h2>
+    <p class="ctas"><a class="pill2" href="https://www.migranodearena.org/reto/-reto250-esterilizamos-250-gatos-en-la-sierra-del-segura" target="_blank" rel="noopener">Apoya el #Reto250</a><a class="pill2 alt" href="#ayuntamientos">¿Eres un ayuntamiento?</a></p>
+    <ul class="chips">
+      <li>Poca gente</li><li>Recursos lejanos</li><li>Muchos gatos</li><li>Carreteras secundarias</li>
+    </ul>
+  </section>
+  <h2 class="sec" id="campanas">Campañas y retos actuales</h2>
+  <section class="camp" id="reto" aria-label="Campaña Reto250">
+    <div>
+      <h1>250 gatos marcados.</h1>
+      <span class="tag">Ayúdanos a marcarlos.</span>
+      <p>Cada gato vuelve a su colonia con la oreja marcada: la señal visible de que ya está protegido.</p>
+      <p>Esterilizamos gatos de colonias en la Sierra del Segura antes del 31 de diciembre. Primera ruta CER: del 26 al 30 de octubre.</p>
+      <p class="price">85 € esterilizan a una gata. 65 €, a un gato. Cualquier cantidad suma.</p>
+      <a class="pill" href="https://www.migranodearena.org/reto/-reto250-esterilizamos-250-gatos-en-la-sierra-del-segura" target="_blank" rel="noopener">Dona en migranodearena.org · #Reto250</a>
+    </div>
+    <figure class="photo"><img src="gatito.jpg" alt="Gatito de colonia en brazos de una voluntaria" width="900" height="775"></figure>
+  </section>
+  <section class="meter" aria-label="Recuento de la campaña"><p class="lbl">Vamos avanzando con las marcas: ya llevamos <i>250 €</i> recaudados.</p><p class="lbl2">Anímate, ¡nos falta tu ayuda!</p><p class="fine">Recuento semanal · actualizado el 18 de octubre de 2026.</p></section>
+</div>
+<div class="wrap">
+  <section class="block" id="quienes">
+    <span class="eyebrow">Quiénes somos</span>
+    <h2>Nuestra filosofía.</h2>
+    <div class="grid3" style="margin-top:24px">
+      <div class="card"><span class="n">1</span><h3>Gestión ética</h3><p>Controlamos las colonias con el método CER y criterio veterinario.</p></div>
+      <div class="card"><span class="n">2</span><h3>Capturar con el pueblo</h3><p>Voluntariado local y jaulas trampa. Conocemos la colonia y a quien la cuida.</p></div>
+      <div class="card"><span class="n">3</span><h3>Esterilizar cerca</h3><p>Con unidad móvil o con un veterinario de clínica local.</p></div>
+      <div class="card"><span class="n">4</span><h3>Devolver con la oreja marcada</h3><p>Cada gato vuelve a su colonia con la señal de que ya está hecho.</p></div>
+    </div>
+  </section>
+  <section class="block" id="donde">
+    <span class="eyebrow">Territorio</span>
+    <h2>Trabajamos en la Sierra del Segura.</h2>
+    <p class="lead" style="margin-top:20px">La sede de Gatureños está en Letur, pero colaboramos con todos los pueblos que nos solicitan ayuda.</p>
+  </section>
+  <section class="block" id="ayuntamientos">
+    <span class="eyebrow">Ayuntamientos</span>
+    <h2>¿Necesitas ayuda en tu ayuntamiento?</h2>
+    <p class="lead" style="margin-top:20px">Te ayudamos a organizar un CER intensivo. Tenemos nuestra propia aplicación para gestionar colonias felinas. Aunque no estés en la Sierra del Segura, ponte en contacto con nosotros.</p>
+    <div class="grid3">
+      <div class="card"><h3>Formación</h3><p>Formación para el voluntariado que cuida las colonias.</p></div>
+      <div class="card"><h3>Proyecto CER</h3><p>Redacción del proyecto CER de tu municipio.</p></div>
+      <div class="card"><h3>Protocolos</h3><p>Protocolos de actuación con criterio veterinario.</p></div>
+      <div class="card"><h3>Coordinación del voluntariado</h3><p>Organización de grupos y de quienes los coordinan.</p></div>
+      <div class="card"><h3>Plan anual de esterilización</h3><p>Calendario de actuaciones para controlar las colonias de tu municipio todo el año.</p></div>
+      <div class="card"><h3>Gestión de subvenciones</h3><p>Ayuda para buscar y justificar subvenciones.</p></div>
+    </div>
+    <p class="lead" style="margin-top:26px">Escríbenos a info@gaturenos.org</p>
+    <a class="btn" href="mailto:info@gaturenos.org?subject=Hablemos%20de%20mi%20municipio">Hablemos de tu municipio</a>
+  </section>
+  <section class="block" id="unete">
+    <span class="eyebrow">Únete</span>
+    <h2>Hay sitio para ti en la colonia.</h2>
+    <div class="grid3" style="margin-top:24px">
+      <div class="card"><h3>Voluntariado</h3><p>Formación abierta para cuidar colonias con seguridad y criterio.</p><a class="btn" href="#unete">Ver formación</a></div>
+      <div class="card"><h3>Adopta</h3><p>Gatos con ficha, contrato y seguimiento.</p><a class="btn" href="#unete">Formulario de adopción</a></div>
+      <div class="card"><h3>Apoya</h3><p>Financia gatos marcados en el #Reto250.</p><a class="btn" href="#reto">Ir a la campaña</a></div>
+    </div>
+  </section>
+</div>
+<footer>
+  <div class="wrap cols">
+    <div><p><b>Asociación Gatureños</b></p><p>Letur (Albacete)</p><p>CIF G75317131</p><p>Registro de Asociaciones de Castilla-La Mancha, nº 33840</p></div>
+    <div><p><b>Contacto</b></p><p>info@gaturenos.org</p><p><a href="https://www.instagram.com/gaturenos_/" target="_blank" rel="noopener">Instagram @gaturenos_</a></p><p><a href="https://www.facebook.com/gaturenos" target="_blank" rel="noopener">Facebook</a></p></div>
+    <div><p><b>Información legal</b></p><p>Aviso legal · Política de privacidad · Política de cookies</p></div>
+  </div>
+</footer>
+
+
+</body>
+</html>
